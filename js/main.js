@@ -6,10 +6,12 @@
 
 // hämta formulär
 const form = document.getElementById("searchform");
+// hämta sökinput
+const searchInput = document.getElementById("search");
 
 // funktion: sök
 function search() {
-    console.log("Form submitted")
+    console.log(searchInput.value);
 }
 
 // eventListener: sökning
