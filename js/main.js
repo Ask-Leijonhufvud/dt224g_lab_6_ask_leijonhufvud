@@ -11,8 +11,11 @@ const searchInput = document.getElementById("search");
 // hämta felmeddelandefält
 const errorMessageP = document.getElementById("error");
 
-// funktion: sök
+// funktion: hämta och validera söksträng; visa felmeddelande eller skicka vidare
 function search() {
+    // ta bort eventuellt felmeddelande
+    errorMessageP.textContent = "";
+
     // sätt variable för strängen i sökfältet
     let searchValue = searchInput.value;
 
