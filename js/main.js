@@ -27,7 +27,8 @@ async function getRecipe(search) {
         printToDOM(data);
     } catch (error) {
         // hantera ev. fel
-        console.log(`${error.name}: ${error.message}`);
+        console.log(error);
+        messageSection.innerHTML = `<p>${error.name}: ${error.message}</p>`;
     }
 }
 
