@@ -29,7 +29,7 @@ async function getRecipe(search) {
     printToDOM(data);
   } catch (error) {
     // hantera ev. fel
-    console.log(error);
+    console.error(error);
     messageSection.innerHTML = `<p>Fel vid hämtning av sökresultat: ${error.name}: ${error.message}</p>`;
   }
 }
@@ -92,7 +92,7 @@ function printToDOM(input) {
     }
   } catch (error) {
     // hantera ev. fel vid bearbetning av sökresultat
-    console.log(error);
+    console.error(error);
     messageSection.innerHTML = `<p>Fel vid bearbetning av sökresultat: ${error.name}: ${error.message}</p>`;
   }
 }
