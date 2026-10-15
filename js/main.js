@@ -55,6 +55,15 @@ function printToDOM(input) {
         recipeImg.alt = `Bild av ${input.recipes[0].name}`;
         recipe.appendChild(recipeImg);
 
+        // visa receptinfo
+        const recipeInfo = document.createElement("div");
+        recipeInfo.setAttribute("class", "recipe-info");
+        recipeInfo.innerHTML = `<p><strong>Servings:</strong> ${input.recipes[0].servings}</p>` +
+            `<p><strong>Prep time:</strong> ${input.recipes[0].prepTimeMinutes} minutes</p>` +
+            `<p><strong>Cooking time:</strong> ${input.recipes[0].cookTimeMinutes} minutes</>` +
+            `<p><strong>Difficulty:</strong> ${input.recipes[0].difficulty}</p>`; // fetstil visas ej för mig, osäker om varför
+        recipe.appendChild(recipeInfo);
+
         // visa recept
         recipeSection.appendChild(recipe);
     }
