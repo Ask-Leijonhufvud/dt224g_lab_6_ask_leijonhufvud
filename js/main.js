@@ -49,6 +49,12 @@ function printToDOM(input) {
         recipeName.textContent = input.recipes[0].name;
         recipe.appendChild(recipeName);
 
+        // visa bild av maträtt
+        const recipeImg = document.createElement("img");
+        recipeImg.src = input.recipes[0].image;
+        recipeImg.alt = `Bild av ${input.recipes[0].name}`;
+        recipe.appendChild(recipeImg);
+
         // visa recept
         recipeSection.appendChild(recipe);
     }
