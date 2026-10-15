@@ -64,6 +64,14 @@ function printToDOM(input) {
             `<p><strong>Difficulty:</strong> ${input.recipes[0].difficulty}</p>`; // fetstil visas ej för mig, osäker om varför
         recipe.appendChild(recipeInfo);
 
+        // visa lista med ingredienser
+        recipe.innerHTML += "<h4>Ingredients</h4>";
+        const ingredientsList = document.createElement("ul");
+        input.recipes[0].ingredients.forEach(ingredient => {
+            ingredientsList.innerHTML += `<li>${ingredient}</li>`;
+        });
+        recipe.appendChild(ingredientsList);
+
         // visa recept
         recipeSection.appendChild(recipe);
     }
