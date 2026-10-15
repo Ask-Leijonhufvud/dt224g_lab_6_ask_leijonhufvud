@@ -1,6 +1,6 @@
 # DT224G - Laboration 6
 
-[GitHub Pages]
+[GitHub Pages](https://ask-leijonhufvud.github.io/dt224g_lab_6_ask_leijonhufvud/)
 
 ## Beskrivning
 
