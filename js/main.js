@@ -93,7 +93,7 @@ function search() {
     recipeSection.innerHTML = "";
     messageSection.innerHTML = "";
 
-    // sätt variable för strängen i sökfältet
+    // sätt variabel för strängen i sökfältet
     let searchValue = searchInput.value;
 
     // validera söksträng
