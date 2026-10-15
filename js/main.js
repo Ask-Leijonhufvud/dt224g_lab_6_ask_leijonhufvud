@@ -10,6 +10,8 @@ const form = document.getElementById("searchform");
 const searchInput = document.getElementById("search");
 // hämta felmeddelandefält
 const errorMessageP = document.getElementById("error");
+// hämta meddelandefält
+const messageSection = document.getElementById("message");
 
 // funktion: hämta sökresultat, omvandla från JSON, skicka vidare; hantera ev. fel
 async function getRecipe(search) {
@@ -29,7 +31,11 @@ async function getRecipe(search) {
 
 // funktion: visa första sökresultatet el. meddelande om att inget resultat gavs
 function printToDOM(input) {
-
+    // kolla om något recept returnerades
+    if (input.recipes.length == 0) {
+        // om inga recept returnerades, skriv ut meddelande om att inget recept hittades
+        messageSection.innerHTML = "<p><strong>Inget recept hittades, prova en ny sökfras.</strong></p>"
+    }
 }
 
 // funktion: hämta och validera söksträng; visa felmeddelande eller skicka vidare
