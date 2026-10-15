@@ -37,6 +37,20 @@ function printToDOM(input) {
     if (input.recipes.length == 0) {
         // om inga recept returnerades, skriv ut meddelande om att inget recept hittades
         messageSection.innerHTML = "<p><strong>Inget recept hittades, prova en ny sökfras.</strong></p>"
+    } else {
+        // om recept returnerades
+        console.log(input.recipes[0]); // för att se datastruktur
+
+        // skapa <article> för recept
+        const recipe = document.createElement("article");
+
+        // skapa och hantera <h3> för receptets namn
+        const recipeName = document.createElement("h3");
+        recipeName.textContent = input.recipes[0].name;
+        recipe.appendChild(recipeName);
+
+        // visa recept
+        recipeSection.appendChild(recipe);
     }
 }
 
