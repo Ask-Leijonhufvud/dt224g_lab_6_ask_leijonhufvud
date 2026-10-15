@@ -34,6 +34,8 @@ async function getRecipe(search) {
 
 // funktion: visa första sökresultatet el. meddelande om att inget resultat gavs
 function printToDOM(input) {
+    // försök hantera sökresultat
+    try {
     // kolla om något recept returnerades
     if (input.recipes.length == 0) {
         // om inga recept returnerades, skriv ut meddelande om att inget recept hittades
@@ -84,6 +86,11 @@ function printToDOM(input) {
         // visa recept
         recipeSection.appendChild(recipe);
     }
+} catch (error) {
+    // hantera ev. fel vid bearbetning av sökresultat
+    console.log(error);
+        messageSection.innerHTML = `<p>Fel vid bearbetning av sökresultat: ${error.name}: ${error.message}</p>`;
+}
 }
 
 // funktion: hämta och validera söksträng; visa felmeddelande eller skicka vidare
