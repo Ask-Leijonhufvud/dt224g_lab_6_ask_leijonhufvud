@@ -28,7 +28,7 @@ async function getRecipe(search) {
     } catch (error) {
         // hantera ev. fel
         console.log(error);
-        messageSection.innerHTML = `<p>${error.name}: ${error.message}</p>`;
+        messageSection.innerHTML = `<p>Fel vid hämtning av sökresultat: ${error.name}: ${error.message}</p>`;
     }
 }
 
