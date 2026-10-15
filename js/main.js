@@ -20,7 +20,7 @@ async function getRecipe(search) {
         // omvandla från JSON
         let data = await response.json();
         // skicka vidare
-        console.log(data); // placeholder
+        printToDOM(data);
     } catch (error) {
         // hantera ev. fel
         console.log(`${error.name}: ${error.message}`);
@@ -28,6 +28,9 @@ async function getRecipe(search) {
 }
 
 // funktion: visa första sökresultatet el. meddelande om att inget resultat gavs
+function printToDOM(input) {
+
+}
 
 // funktion: hämta och validera söksträng; visa felmeddelande eller skicka vidare
 function search() {
