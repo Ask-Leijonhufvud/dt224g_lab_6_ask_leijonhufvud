@@ -23,6 +23,11 @@ async function getRecipe(search) {
     let response = await fetch(
       `https://dummyjson.com/recipes/search?q=${search}`,
     );
+    // kolla status av respons
+    if (!response.ok) {
+      // om response EJ är OK, kasta fel
+      throw new Error(`Fetch Error: ${response.status}: ${response.statusText}`);
+    }
     // omvandla från JSON
     let data = await response.json();
     // skicka vidare
