@@ -72,6 +72,14 @@ function printToDOM(input) {
         });
         recipe.appendChild(ingredientsList);
 
+        // visa instruktioner
+        recipe.innerHTML += "<h4>Instructiones</h4>";
+        const instructions = document.createElement("ol");
+        input.recipes[0].instructions.forEach(instruction => {
+            instructions.innerHTML += `<li>${instruction}</li>`;
+        });
+        recipe.appendChild(instructions);
+
         // visa recept
         recipeSection.appendChild(recipe);
     }
