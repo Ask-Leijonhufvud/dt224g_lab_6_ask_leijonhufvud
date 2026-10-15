@@ -12,6 +12,8 @@ const searchInput = document.getElementById("search");
 const errorMessageP = document.getElementById("error");
 // hämta meddelandefält
 const messageSection = document.getElementById("message");
+// hämta receptfält
+const recipeSection = document.getElementById("recipe");
 
 // funktion: hämta sökresultat, omvandla från JSON, skicka vidare; hantera ev. fel
 async function getRecipe(search) {
@@ -40,8 +42,10 @@ function printToDOM(input) {
 
 // funktion: hämta och validera söksträng; visa felmeddelande eller skicka vidare
 function search() {
-    // ta bort eventuellt felmeddelande
+    // ta bort eventuella felmeddelanden el. föregående sökresultat
     errorMessageP.textContent = "";
+    recipeSection.innerHTML = "";
+    messageSection.innerHTML = "";
 
     // sätt variable för strängen i sökfältet
     let searchValue = searchInput.value;
