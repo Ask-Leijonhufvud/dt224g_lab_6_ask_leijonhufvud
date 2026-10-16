@@ -26,7 +26,9 @@ async function getRecipe(search) {
     // kolla status av respons
     if (!response.ok) {
       // om response EJ är OK, kasta fel
-      throw new Error(`Fetch Error: ${response.status}: ${response.statusText}`);
+      throw new Error(
+        `Fetch Error: ${response.status}: ${response.statusText}`,
+      );
     }
     // omvandla från JSON
     let data = await response.json();
@@ -51,6 +53,46 @@ function printToDOM(input) {
     } else {
       // om recept returnerades
       console.log(input.recipes[0]); // för att se datastruktur
+
+      // om någon av receptets alla elements Ej är närvarande i svaret
+      if (
+        !input.recipes[0].name ||
+        !input.recipes[0].image ||
+        !input.recipes[0].servings ||
+        !input.recipes[0].prepTimeMinutes ||
+        !input.recipes[0].cookTimeMinutes ||
+        !input.recipes[0].difficulty ||
+        !input.recipes[0].ingredients ||
+        !input.recipes[0].instructions
+      ) {
+        // skapa och skickas fel med info om vilka delar som saknas
+        let recipeIncompleteMessage = "values missing from fetch response:";
+        if (!input.recipes[0].name) {
+          recipeIncompleteMessage += " recipes[0].name;";
+        }
+        if (!input.recipes[0].image) {
+          recipeIncompleteMessage += " recipes[0].image;";
+        }
+        if (!input.recipes[0].servings) {
+          recipeIncompleteMessage += " recipes[0].servings;";
+        }
+        if (!input.recipes[0].prepTimeMinutes) {
+          recipeIncompleteMessage += " recipes[0].prepTimeMinutes;";
+        }
+        if (!input.recipes[0].cookTimeMinutes) {
+          recipeIncompleteMessage += " recipes[0].cookTimeMinutes;";
+        }
+        if (!input.recipes[0].difficulty) {
+          recipeIncompleteMessage += " recipes[0].difficulty;";
+        }
+        if (!input.recipes[0].ingredients) {
+          recipeIncompleteMessage += " recipes[0].ingredients;";
+        }
+        if (!input.recipes[0].instructions) {
+          recipeIncompleteMessage += " recipes[0].instructions;";
+        }
+        throw new ReferenceError(recipeIncompleteMessage);
+      }
 
       // skapa <article> för recept
       const recipe = document.createElement("article");
