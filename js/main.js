@@ -27,7 +27,7 @@ async function getRecipe(search) {
     if (!response.ok) {
       // om response EJ är OK, kasta fel
       throw new Error(
-        `Fetch Error: ${response.status}: ${response.statusText}`,
+        `Fetch Error: ${response.status} ${response.statusText}`,
       );
     }
     // omvandla från JSON
